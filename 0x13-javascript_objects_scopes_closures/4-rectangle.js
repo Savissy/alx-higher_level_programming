@@ -1,21 +1,31 @@
 #!/usr/bin/node
-// Define class Rectangle with conditional === 0 or not positive integer
 class Rectangle {
   constructor (w, h) {
-    if (((w = parseInt(w)) && (h = parseInt(h))) > 0) {
+    if ((w > 0) && (h > 0)) {
       this.width = w;
       this.height = h;
     }
   }
 
   print () {
-    console.log(
-      ('X'.repeat(this.width) + '\n')
-        .repeat(this.height)
-        .split('')
-        .slice(0, -1)
-        .join('')
-    );
+    for (let i = 0; i < this.height; i++) {
+      let s = '';
+      for (let j = 0; j < this.width; j++) {
+        s += 'X';
+      }
+      console.log(s);
+    }
+  }
+
+  rotate () {
+    const aux = this.width;
+    this.width = this.height;
+    this.height = aux;
+  }
+
+  double () {
+    this.width *= 2;
+    this.height *= 2;
   }
 }
 

@@ -1,13 +1,18 @@
 #!/usr/bin/node
-// Square class extends square
-const SquareBase = require('./5-square');
+const SquareP = require('./5-square');
 
-class Square extends SquareBase {
+class Square extends SquareP {
   charPrint (c) {
     if (c === undefined) {
       c = 'X';
     }
-    process.stdout.write((c.repeat(this.width) + '\n').repeat(this.height));
+    for (let i = 0; i < this.height; i++) {
+      let s = '';
+      for (let j = 0; j < this.width; j++) {
+        s += c;
+      }
+      console.log(s);
+    }
   }
 }
 
